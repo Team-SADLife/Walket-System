@@ -64,7 +64,7 @@ void bfs(PI source)
         if (check(x + 1, y))
             path[x+1][y] = path[x][y], path[x+1][y].pb('D'), q.push({x+1,y}), visited[x+1][y]=1;
     }
-    cout<<source.F<<" "<<source.S<<endl;
+    // cout<<source.F<<" "<<source.S<<endl;
     for (i=1;i<=30;i++)
     {
         for (j=1;j<=30;j++)
@@ -72,7 +72,7 @@ void bfs(PI source)
             if (a[i][j]==' ')
             {
                 PI dest = {i,j};
-                finalPath[{source, {dest}}] = path[i][j];
+                finalPath[{source,dest}] = path[i][j];
                 // finalPath[source.F][source.S][i][j] = path[i][j];
             }
         }
@@ -90,10 +90,27 @@ void calculateShortestPath()
                 bfs({i,j});
         }
     }
-    // bfs({1,1});
-
 }
 
+void pathFromXtoY(PI x, PI y)
+{
+    string s = finalPath[{x,y}];
+    int x1 = x.F, y1 = x.S, x2 = y.F, y2 = y.S;
+    int i=0;
+
+    while (!(x1==x2 and y1==y2))
+    {
+        if (s[i]=='L')  a[x1][y1-1] = s[i], y1-=1;
+        else if (s[i]=='R') a[x1][y1+1] = s[i], y1+=1;
+        else if (s[i]=='U') a[x1-1][y1] = s[i], x1-=1;
+        else a[x1+1][y1] = s[i], x1+=1;
+        i++;
+    }
+    a[x.F][x.S] = '1'; a[y.F][y.S] = '2';
+    display();
+    // cout<<s<<endl;
+    // cout<<s.length()<<endl;
+}
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -111,7 +128,6 @@ int main()
     for (i=0;i<=30;i++)
         for (j=0;j<=30;j++)
             a[i][j] = ob.a[i][j];
-    
     calculateShortestPath();
-    cout<<"hello world"<<endl;
+    pathFromXtoY({23,9},{3,20});
 }
