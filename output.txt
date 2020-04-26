@@ -1,26 +1,26 @@
                                                             
+                H                                           
+        X X     O   X   X   X       X   X     X X X         
+        X X     X   X   X   X       X   X                   
+                                              X X X         
                                                             
-        X X     O   X   X   X       X 2 X     X X X         
-        X X     X   X   X   X       X U X                   
-                                      U       X X X         
-                                      U                     
-    X X   X     X   X   X   X   X   X U X     X X X         
-                X   X   X   X   X   X U X                   
-    X X   X     X   X   X   X   X   X U X                   
-                X   X   X   X   X   X U X     X   X         
-    X X X       X   X   X   X   X   X U X                   
-                X   X   X   X   X   X U X     O   X         
-    X O X                             U                     
-                                      U       X   X         
-    X   X       X   X   X   X   X   X U X                   
-                X   X   X   X   X   X U X                   
-    O   X       X   X   X   X   X   X U X     X X X         
-                X   X   X   X   X   O U X                   
-    X   X       X   X   X   X   X   X U X     X X X         
-                X   X   X   X   X   X U X                   
-                                      U       X X X         
-                U R R R R R R R R R R R                     
-    X X         1 X   X   X   X   X   X                     
+    X X   X     X   X   X   X   X   X   X     X X X         
+                X   X   X   X   X   X   X                   
+    X X   X     X   X   X   X   X   X   X                   
+                X   X   X   X   X   X   X     X   O         
+    X X X       X   X   X   X   X   X   X       H           
+                X   X   X   X   X   X   X     O   X         
+    X X X                                                   
+                                              X   X         
+    X   O       X   X   X   X   X   X   X                   
+                X   X   X   X   X   X   X                   
+    X H X       X   X   X   X   O H X   X     X X X         
+                X   X   X   X   X   O   X                   
+    O   X       X   X   X   X   X   X   X     X X X         
+                X   X   X   X   X   X   X                   
+                                              X X X         
+                                                            
+    X X           X   X   X   X   X   X                     
                                                             
                                                             
                                                             

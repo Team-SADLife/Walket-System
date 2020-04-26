@@ -19,7 +19,6 @@ char a[31][31];
 vector <product> prod;
 int visited[31][31];
 map < pair< pair<int,int> , pair<int,int> >, string> finalPath;
-// string finalPath[31][31][31][31];
 
 void display()
 {
@@ -111,6 +110,39 @@ void pathFromXtoY(PI x, PI y)
     // cout<<s<<endl;
     // cout<<s.length()<<endl;
 }
+
+void findRepresentatives()
+{
+    map<int, vector<PI> > r;
+    vector<PI> rep;
+    int i;
+    for (i=0;i<prod.size();i++){
+        int grp = g[prod[i].g];
+        r[grp].pb({prod[i].x,prod[i].y});
+    }
+
+    for (auto it1 = r.begin();it1!=r.end();it1++)
+    {
+        int sx=0,sy=0;
+        for (auto it2 = it1->second.begin();it2!=it1->second.end();it2++)
+        {
+            sx+=it2->first;
+            sy+=it2->second;
+        }
+        sx/=it1->second.size();
+        sy/=it1->second.size();
+        if (a[sx][sy]==' ') rep.pb({sx,sy});
+        else {
+            if (a[sx-1][sy]==' ')  rep.pb({sx-1,sy});
+            else if (a[sx][sy-1]==' ') rep.pb({sx,sy-1});
+            else if (a[sx][sy+1]==' ')  rep.pb({sx,sy+1});
+            else rep.pb({sx+1,sy});
+        }
+    }
+    for (i=0;i<rep.size();i++)  a[rep[i].F][rep[i].S] = 'H';
+    // display();
+}
+
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -129,5 +161,6 @@ int main()
         for (j=0;j<=30;j++)
             a[i][j] = ob.a[i][j];
     calculateShortestPath();
-    pathFromXtoY({23,9},{3,20});
+    findRepresentatives();
+    // pathFromXtoY({23,9},{3,20});
 }

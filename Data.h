@@ -136,6 +136,6 @@ void Data::initialiseMapCoordinates()
 
 void Data::initialiseProducts()
 {
-    prod = {{1,"M1",3,9},{2,"P5",17,3},{3,"P7",13,4},{4,"C2",12,24},{5,"F2",18,19}};
+    prod = {{1,"M1",3,9},{2,"P6",19,3},{3,"P3",15,5},{4,"C2",12,24},{5,"F2",18,19},{6,"F1",17,17},{7,"C4",10,26}};
     for (ll i=0;i<prod.size();i++)  a[prod[i].x][prod[i].y] = 'O';
 }
