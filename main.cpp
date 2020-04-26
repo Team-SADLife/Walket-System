@@ -45,4 +45,5 @@ int main()
         for (j=0;j<=30;j++)
             a[i][j] = ob.a[i][j];
     display();
+    ///i have commented , wowoow 
 }
