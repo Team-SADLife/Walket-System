@@ -1,0 +1,67 @@
+                              
+        H                     
+    XX  O X X X   X X  XXX    
+    XX  X X X X   X X         
+                       XXX    
+                              
+  XX X  X X X X X X X  XXX    
+        X X X X X X X         
+  XX X  X X X X X X X         
+        X X X X X X X  X O    
+  XXX   X X X X X X X   H     
+        X X X X X X X  O X    
+  XXX                         
+                       X X    
+  X O   X X X X X X X         
+        X X X X X X X         
+  XHX   X X X X OHX X  XXX    
+        X X X X X O X         
+  O X   X X X X X X X  XXX    
+        X X X X X X X         
+                       XXX    
+                              
+  XX     X X X X X X          
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+
+Minimum Distance to be travelled: 79
+
+The Optimal Path to be followed:
+LLUUUUULUUUUUURRRRUUUUUUUUUUUUUURRRRRRRRRRRRRRRDDDDDDRRDDDLLLDDLLLLDDDDDDDDLLLD
+
+                               
+                               
+        >>>>>>>>>>>>>>>v       
+     XX ^O X X X   X X vXXX    
+     XX ^X X X X   X X v       
+        ^              vXXX    
+        ^              v       
+   XX X ^X X X X X X X vXXX    
+        ^X X X X X X X >>v     
+   XX X ^X X X X X X X   v     
+        ^X X X X X X X  XvO    
+   XXX  ^X X X X X X Xv<<<     
+        ^X X X X X X Xv O X    
+   XXX  ^         v<<<<        
+        ^         v     X X    
+   X O  ^X X X X XvX X         
+    >>>>^X X X X XvX X         
+   X^X   X X X X OvX X  XXX    
+    ^    X X X X XvO X         
+   O^X   X X X X XvX X  XXX    
+    ^    X X X X XvX X         
+    ^          v<<<     XXX    
+    ^<         B               
+   XX^    X X X X X X          
+     ^                         
+     ^                         
+     ^                         
+     ^<<                       
+                               
+                               
+                               

@@ -9,19 +9,20 @@ vector<product> prod;
 bool visited[31][31];
 map<pair<pair<int, int>, pair<int, int>>, string> finalPath;
 vector<pair<int, int>> endPoints;
+int dp[1 << 18][18], child[1 << 18][18], maxSize;
 
 void display() {
   int i, j;
   for (i = 1; i <= 30; i++) {
     for (j = 1; j <= 30; j++)
-      cout << a[i][j] << " ";
+      cout << a[i][j];
     cout << endl;
   }
 }
 
 bool check(int x, int y) {
-  if (x > 0 and x <= 30 and y > 0 and y <= 30) {
-    if (a[x][y] == ' ' and !visited[x][y])
+  if (x > 0 && x <= 30 && y > 0 && y <= 30) {
+    if (a[x][y] == ' ' && !visited[x][y])
       return true;
     return false;
   }
@@ -92,8 +93,6 @@ void pathFromXtoY(pair<int, int> x, pair<int, int> y) {
   a[x.first][x.second] = '1';
   a[y.first][y.second] = '2';
   display();
-  // cout<<s<<endl;
-  // cout<<s.length()<<endl;
 }
 
 vector<pair<int, int>> findRepresentatives() {
@@ -130,6 +129,80 @@ vector<pair<int, int>> findRepresentatives() {
   return rep;
 }
 
+pair<int, int> getCordinates(int index) {
+  return {endPoints[index].first, endPoints[index].second};
+}
+
+int findOptimalPath(int mask, int lastVisited) {
+  if (mask == ((1 << maxSize) - 1))
+    // All products are taken, so we'll return to the billing counter
+    return finalPath[{getCordinates(lastVisited), {22, 15}}].length();
+  if (dp[mask][lastVisited] != -1)
+    return dp[mask][lastVisited];
+  int minDistance = 1e9;
+  if (mask == 0) { // We are at the entry point, so we'll try to select every
+                   // possible end point as the first point to vistt
+    for (int i = 0; i < endPoints.size(); i++) {
+      int currentDistance = finalPath[{{27, 7}, getCordinates(i)}].length() +
+                            findOptimalPath(mask | (1 << i), i);
+      if (currentDistance < minDistance)
+        minDistance = currentDistance, child[mask][lastVisited] = i;
+    }
+  } else {
+    for (int i = 0; i < endPoints.size(); i++) {
+      if (!(mask & (1 << i))) { // This end point is not yet visited, so we'll
+                                // try to visit it
+        int currentDistance =
+            finalPath[{getCordinates(lastVisited), getCordinates(i)}].length() +
+            findOptimalPath(mask | (1 << i), i);
+        if (currentDistance < minDistance)
+          minDistance = currentDistance, child[mask][lastVisited] = i;
+      }
+    }
+  }
+  return dp[mask][lastVisited] = minDistance;
+}
+
+string tracePath() {
+  int currentMask = 0, lastVisited = 0;
+  string path;
+  while (!(currentMask == ((1LL << maxSize) - 1))) {
+    int nextIndex = child[currentMask][lastVisited];
+    if (currentMask == 0) {
+      path += finalPath[{{27, 7}, getCordinates(nextIndex)}];
+      currentMask |= (1 << nextIndex);
+      lastVisited = nextIndex;
+    } else {
+      path += finalPath[{getCordinates(lastVisited), getCordinates(nextIndex)}];
+      currentMask |= (1 << nextIndex);
+      lastVisited = nextIndex;
+    }
+  }
+  path += finalPath[{getCordinates(lastVisited), {22, 15}}];
+  return path;
+}
+
+void showPath(string path) {
+  int currentX = 27, currentY = 7, index = 0;
+  while (!(currentX == 22 && currentY == 15)) {
+    if (path[index] == 'L')
+      a[currentX][currentY] = '<', currentY--;
+    else if (path[index] == 'R')
+      a[currentX][currentY] = '>', currentY++;
+    else if (path[index] == 'U')
+      a[currentX][currentY] = '^', currentX--;
+    else
+      a[currentX][currentY] = 'v', currentX++;
+    index++;
+  }
+  a[currentX][currentY] = 'B';
+  for (int i = 0; i <= 30; i++) {
+    for (int j = 0; j <= 30; j++)
+      cout << a[i][j];
+    cout << '\n';
+  }
+}
+
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
@@ -144,5 +217,14 @@ int main() {
       a[i][j] = ob.a[i][j];
   calculateShortestPath();
   endPoints = findRepresentatives();
-  // pathFromXtoY({23,9},{3,20});
+  maxSize = endPoints.size();
+  display();
+  cout << '\n';
+  memset(dp, -1, sizeof(dp));
+  int optimalDistance = findOptimalPath(0, 0);
+  cout << "Minimum Distance to be travelled: " << optimalDistance
+       << "\n\n";
+  string optimalPath = tracePath();
+  cout << "The Optimal Path to be followed:\n" << optimalPath << "\n\n";
+  showPath(optimalPath);
 }
