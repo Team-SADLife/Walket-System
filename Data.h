@@ -35,7 +35,7 @@ void Data::initMatrix() {
   }
   for (auto it1 = m.begin(); it1 != m.end(); it1++) {
     for (auto it2 = it1->second.begin(); it2 != it1->second.end(); it2++) {
-      a[it2->first][it2->second] = 'X';
+      a[it2->first][it2->second] = '|';
     }
   }
 }
@@ -133,5 +133,5 @@ void Data::initialiseProducts() {
           {4, "C2", 12, 24}, {5, "F2", 18, 19}, {6, "F1", 17, 17},
           {7, "C4", 10, 26}};
   for (int i = 0; i < prod.size(); i++)
-    a[prod[i].x][prod[i].y] = 'O';
+    a[prod[i].x][prod[i].y] = 'X';
 }

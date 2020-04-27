@@ -2,6 +2,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/*  
+    Assuiming associate starts his path from (27,7) i.e IN and ends his path 
+    at billing counter(22,15). However, the start and end points can be changed
+    as per requirement. 
+
+    A,B     : start and end points of optimal path generated
+    |       : represents section of store (i.e. where associate cannot move)
+    X       : represents the orders in respective sections of store
+    >,<,^,v : represent directions :)
+    H       : approximate representatives of orders in various 
+              sections of store
+*/ 
+
 map<string, vector<pair<int, int>>> m; // mapping sections to coordinates
 map<string, int> g;                    // mapping sections to groups
 char a[31][31];
@@ -15,7 +28,7 @@ void display() {
   int i, j;
   for (i = 1; i <= 30; i++) {
     for (j = 1; j <= 30; j++)
-      cout << a[i][j];
+      cout << a[i][j] << " ";
     cout << endl;
   }
 }
@@ -72,27 +85,6 @@ void calculateShortestPath() {
         bfs({i, j});
     }
   }
-}
-
-void pathFromXtoY(pair<int, int> x, pair<int, int> y) {
-  string s = finalPath[{x, y}];
-  int x1 = x.first, y1 = x.second, x2 = y.first, y2 = y.second;
-  int i = 0;
-
-  while (!(x1 == x2 and y1 == y2)) {
-    if (s[i] == 'L')
-      a[x1][y1 - 1] = s[i], y1 -= 1;
-    else if (s[i] == 'R')
-      a[x1][y1 + 1] = s[i], y1 += 1;
-    else if (s[i] == 'U')
-      a[x1 - 1][y1] = s[i], x1 -= 1;
-    else
-      a[x1 + 1][y1] = s[i], x1 += 1;
-    i++;
-  }
-  a[x.first][x.second] = '1';
-  a[y.first][y.second] = '2';
-  display();
 }
 
 vector<pair<int, int>> findRepresentatives() {
@@ -184,6 +176,7 @@ string tracePath() {
 
 void showPath(string path) {
   int currentX = 27, currentY = 7, index = 0;
+  int currXcopy = 27, currYcopy = 7;
   while (!(currentX == 22 && currentY == 15)) {
     if (path[index] == 'L')
       a[currentX][currentY] = '<', currentY--;
@@ -195,12 +188,9 @@ void showPath(string path) {
       a[currentX][currentY] = 'v', currentX++;
     index++;
   }
+  a[currXcopy][currYcopy] = 'A';
   a[currentX][currentY] = 'B';
-  for (int i = 0; i <= 30; i++) {
-    for (int j = 0; j <= 30; j++)
-      cout << a[i][j];
-    cout << '\n';
-  }
+  display();
 }
 
 int main() {
