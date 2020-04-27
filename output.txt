@@ -1,31 +1,66 @@
-                                                              
-                                                              
-                                                              
-          X X     O   X   X   X       X   X     X X X         
-          X X     X   X   X   X       X   X                   
-                                                X X X         
-                                                              
-      X X   X     X   X   X   X   X   X   X     X X X         
-                  X   X   X   X   X   X   X                   
-      X X   X     X   X   X   X   X   X   X                   
-                  X   X   X   X   X   X   X     X   X         
-      X X X       X   X   X   X   X   X   X                   
-                  X   X   X   X   X   X   X     O   X         
-      X O X                                                   
-                                                X   X         
-      X   X       X   X   X   X   X   X   X                   
-                  X   X   X   X   X   X   X                   
-      O   X       X   X   X   X   X   X   X     X X X         
-                  X   X   X   X   X   O   X                   
-      X   X       X   X   X   X   X   X   X     X X X         
-                  X   X   X   X   X   X   X                   
-                                                X X X         
-                                                              
-      X X                                                     
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
+                                                            
+                H                                           
+        | |     X   |   |   |       |   |     | | |         
+        | |     |   |   |   |       |   |                   
+                                              | | |         
+                                                            
+    | |   |     |   |   |   |   |   |   |     | | |         
+                |   |   |   |   |   |   |                   
+    | |   |     |   |   |   |   |   |   |                   
+                |   |   |   |   |   |   |     |   X         
+    | | |       |   |   |   |   |   |   |       H           
+                |   |   |   |   |   |   |     X   |         
+    | | |                                                   
+                                              |   |         
+    |   X       |   |   |   |   |   |   |                   
+                |   |   |   |   |   |   |                   
+    | H |       |   |   |   |   X H |   |     | | |         
+                |   |   |   |   |   X   |                   
+    X   |       |   |   |   |   |   |   |     | | |         
+                |   |   |   |   |   |   |                   
+                                              | | |         
+                                                            
+    | |           |   |   |   |   |   |                     
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+
+Minimum Distance to be travelled: 79
+
+The Optimal Path to be followed:
+LLUUUUULUUUUUURRRRUUUUUUUUUUUUUURRRRRRRRRRRRRRRDDDDDDRRDDDLLLDDLLLLDDDDDDDDLLLD
+
+                                                            
+              > > > > > > > > > > > > > > > v               
+        | |   ^ X   |   |   |       |   |   v | | |         
+        | |   ^ |   |   |   |       |   |   v               
+              ^                             v | | |         
+              ^                             v               
+    | |   |   ^ |   |   |   |   |   |   |   v | | |         
+              ^ |   |   |   |   |   |   |   > > v           
+    | |   |   ^ |   |   |   |   |   |   |       v           
+              ^ |   |   |   |   |   |   |     | v X         
+    | | |     ^ |   |   |   |   |   |   | v < < <           
+              ^ |   |   |   |   |   |   | v   X   |         
+    | | |     ^                   v < < < <                 
+              ^                   v           |   |         
+    |   X     ^ |   |   |   |   | v |   |                   
+      > > > > ^ |   |   |   |   | v |   |                   
+    | ^ |       |   |   |   |   X v |   |     | | |         
+      ^         |   |   |   |   | v X   |                   
+    X ^ |       |   |   |   |   | v |   |     | | |         
+      ^         |   |   |   |   | v |   |                   
+      ^                     v < < <           | | |         
+      ^ <                   B                               
+    | | ^         |   |   |   |   |   |                     
+        ^                                                   
+        ^                                                   
+        ^                                                   
+        ^ < A                                               
+                                                            
+                                                            
+                                                            
