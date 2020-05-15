@@ -11,7 +11,7 @@ PS: We have implemented the core algorithm.
 
 ### Contributors
 
-@suraj1611 @akash13s @dvyn01
+@suraj1611 @akash13s @dvyn01 - Team SAD Life
 
 ## Screenshots
 
